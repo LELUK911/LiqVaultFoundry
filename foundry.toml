@@ -5,6 +5,8 @@ libs = ["lib"]
 solc-version = "0.8.20"
 optimizer = true
 optimizer-runs = 1000
+dotenv = ".env"
+
 fs_permissions = [{ access = "read", path = "./"}]
 
 [rpc_endpoints]

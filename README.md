@@ -1,66 +1,98 @@
-## Foundry
+# 🛡️ Yearn Token Vault (Vyper 0.3.3) – Verified on Mantle
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This repository contains the source code and deployment details for the `Vault` contract, inspired by **Yearn Finance V2 Vaults**, adapted for the **Mantle Network**.
 
-Foundry consists of:
+The goal of this Vault is to provide a staking-like system for the **MNT** token, which natively lacks interest-bearing functionality. Users deposit MNT and receive an **interest-bearing token**, which appreciates over time thanks to automated DeFi strategies and an additional yield boost provided by the project’s foundation.
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+---
 
-## Documentation
+## 📍 Contract Information
 
-https://book.getfoundry.sh/
+- **Contract Name:** Vault
+- **Internal Title (Vyper):** Yearn Token Vault
+- **Language:** Vyper
+- **Compiler Version:** 0.3.3
+- **Deployed Address:** [`0x5B5278FBf319bc93C6bE7E7423E52c778EB74D56`](https://explorer.mantle.xyz/address/0x5B5278FBf319bc93C6bE7E7423E52c778EB74D56)
+- **Chain ID:** 5000 (Mantle)
+- **Optimizer:** Enabled – 10,000 runs
 
-## Usage
+---
 
-### Build
+## 📂 Source Files
 
-```shell
-$ forge build
-```
+- `contracts/Vault.vy`  
+  Contains the complete smart contract written in Vyper, inspired by Yearn’s architecture and optimized for Mantle.
 
-### Test
+---
 
-```shell
-$ forge test
-```
+## 🚀 How It Works (For Users)
 
-### Format
+### 🧩 What is the Vault?
 
-```shell
-$ forge fmt
-```
+The Vault is a DeFi smart contract that allows users to:
 
-### Gas Snapshots
+- deposit **MNT tokens**
+- receive **Vault shares** that represent their stake
+- earn **passive yield** through automated DeFi strategies
 
-```shell
-$ forge snapshot
-```
+---
 
-### Anvil
+### 🛠️ How It Works
 
-```shell
-$ anvil
-```
+1. **Deposit** your MNT tokens into the Vault
+2. Receive **Vault shares** representing your stake
+3. Funds are deployed into yield-generating strategies
+4. Share value increases as yield is earned
+5. **Withdraw anytime** to receive your MNT + accrued interest
 
-### Deploy
+---
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+### 📊 How Is the Yield Generated?
 
-### Cast
+There are three main sources of yield:
 
-```shell
-$ cast <subcommand>
-```
+1. **Active DeFi strategies** on Mantle (e.g. lending, liquidity provision)
+2. **Automatic compounding** of earnings
+3. **Foundation boost**:
+   - The project’s foundation invests its own MNT into strategies
+   - Only the **interest earned** from this capital is redistributed to Vault users
+   - The **original capital is never shared**, ensuring sustainability
 
-### Help
+> Example: if the foundation deposits 100 MNT and earns 101 MNT, only the **1 MNT profit** is added to the Vault’s yield pool for users.
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+---
+
+### ✅ User Requirements
+
+- A Mantle-compatible wallet (e.g. MetaMask with Mantle configured)
+- MNT tokens
+- Connection to the dApp (coming soon)
+
+---
+
+## 🧾 Contract Verification
+
+MantleScan currently **does not support automated verification** for Vyper contracts.  
+This repository serves as a **transparent public verification**, including:
+
+- Full original source code
+- Compilation parameters
+- Deployment address
+- Contract behavior documentation
+
+---
+
+## 🔗 Useful Links
+
+- [MantleScan – Official Explorer](https://explorer.mantle.xyz/address/0x5B5278FBf319bc93C6bE7E7423E52c778EB74D56)
+- [Yearn V2 Documentation](https://docs.yearn.fi/getting-started/guides/using-yearn-v2)
+- [Vyper Language Docs](https://docs.vyperlang.org/en/stable/)
+
+---
+
+## 👨‍💻 Author
+
+Smart contract developed by [your name or alias].  
+For questions or audits, open an issue or contact me via [GitHub](https://github.com/your-username).
+
+---
